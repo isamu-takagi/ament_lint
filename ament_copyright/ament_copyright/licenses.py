@@ -48,6 +48,9 @@ def read_license_data(path, name, spdx, prefix):
     license_files = read_data(path, name, prefix, 'license')
     contributing_files = read_data(path, name, prefix, 'contributing')
 
+    # Add SPDX format to license templates of the file header.
+    file_headers.append(f"SPDX-License-Identifier: {spdx}")
+
     return LicenseEntryPoint(name, spdx, file_headers, license_files, contributing_files)
 
 
